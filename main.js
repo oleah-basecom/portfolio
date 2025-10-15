@@ -1,7 +1,7 @@
 const lightOff = "images/licht_aus.png";
 const lightOn = "images/licht_an.png";
-const switchOn = "images/switch_off.svg";
-const switchOff = "images/switch_on.svg";
+const switchOn = "images/switch_on.svg";
+const switchOff = "images/switch_off.svg";
 
 
 window.addEventListener("DOMContentLoaded", () => {
