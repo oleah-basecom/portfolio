@@ -88,3 +88,32 @@ a:visited {
     rotate: 90deg;
     background-color: transparent;
 }
+
+@media only screen and (max-width: 1086px) {
+    .portfolio-section {
+        flex-direction: column;
+    }
+
+    .portfolio-image {
+        order: -1;
+    }
+
+    #section2 {
+        flex-direction: column;
+    }
+
+    .paragraph-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-heading {
+        margin-bottom: 0;
+    }
+
+    #switch {
+        margin-left: 0;
+        align-self: center;
+        order: -2;
+    }
+}
