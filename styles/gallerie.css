@@ -1,0 +1,36 @@
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+
+.gallery-element {
+    list-style-type: none;
+    height: 45vh;
+    flex-grow: 1;
+    flex-shrink: 1;
+    margin: 1rem;
+}
+
+.gallery-image {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.gallery-image-bottom {
+    object-position: bottom;
+}
+
+.gallery-image-top {
+    object-position: top;
+}
+
+.gallery-container-focused {
+    flex-wrap: nowrap;
+}
+
+.focused-element {
+    height: 80vh;
+}

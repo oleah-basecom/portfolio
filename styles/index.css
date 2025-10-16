@@ -1,0 +1,90 @@
+#heading {
+    text-align: center;
+}
+
+.portfolio-section {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading {
+    margin-left: 2rem;
+}
+
+.portfolio-paragraph {
+    position: relative;
+    font-size: 1.5rem;
+    max-width: 45rem;
+    padding: 2rem;
+    margin: 2rem;
+    background: #202020;
+}
+
+.portfolio-paragraph:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-width: 3rem 3rem 0 0;
+    border-style: solid;
+    border-color: var(--main-bg-color) transparent transparent var(--main-bg-color)
+}
+
+.portfolio-paragraph:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-width: 0 0 4rem 4rem;
+    border-style: solid;
+    border-color: transparent var(--main-bg-color) var(--main-bg-color) transparent;
+}
+
+.portfolio-image {
+    max-width: 300rem;
+    flex-shrink: 30;
+}
+
+#section2 {
+    flex-direction: row-reverse;
+}
+
+#switch {
+    margin-left: 6rem;
+    rotate: 90deg;
+    background-color: transparent;
+}
+
+@media only screen and (max-width: 1086px) {
+    .portfolio-section {
+        flex-direction: column;
+    }
+
+    .portfolio-image {
+        order: -1;
+    }
+
+    #section2 {
+        flex-direction: column;
+    }
+
+    .paragraph-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section-heading {
+        margin-bottom: 0;
+    }
+
+    #switch {
+        margin-left: 0;
+        align-self: center;
+        order: -2;
+    }
+}
