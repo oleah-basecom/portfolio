@@ -3,13 +3,21 @@
     height: 20rem;
     text-align: center;
     font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-#ttt-board tr {}
+#guessing-game-textinput {
+    margin-bottom: 1rem;
+}
 
 #ttt-board td {
     border: 2px white solid;
     cursor: pointer;
     width: 30%;
     height: 30%;
+}
+
+input:disabled {
+    opacity: 90%;
 }

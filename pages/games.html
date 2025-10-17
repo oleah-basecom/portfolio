@@ -24,11 +24,18 @@
     <label for="guessing-game-textinput">Rate eine Zahl zwischen 1 und 100</label>
     <input id="guessing-game-textinput" type="number" min="1" max="100">
     <input id="guessing-game-submit-button" type="submit">
+    <br>
+    <input id="guessing-game-reset" type="reset">
     <p><em id="guessing-game-message"></em></p>
   </div>
 
   <div id="tic-tac-toe">
     <h2 class="game-heading">Tic-Tac-Toe</h2>
+    <label for="ttt-player-1">Name von Spieler 1</label>
+    <input id="ttt-player-1" type="text" placeholder="Spieler 1">
+    <br>
+    <label for="ttt-player-2">Name von Spieler 2</label>
+    <input id="ttt-player-2" type="text" placeholder="Spieler 2">
     <table id="ttt-board">
       <tr>
         <td id="ttt-0"></td>
@@ -46,7 +53,8 @@
         <td id="ttt-8"></td>
       </tr>
     </table>
-    <p id="ttt-message"><em></em></p>
+    <input id="ttt-reset" type="reset">
+    <p><em id="ttt-message"></em></p>
   </div>
 
   <script src="../scripts/games.js"></script>

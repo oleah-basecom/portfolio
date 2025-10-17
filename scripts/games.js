@@ -1,65 +1,64 @@
 function handleGuessingGame() {
     let textinput = document.getElementById("guessing-game-textinput");
+    let submitButton = document.getElementById("guessing-game-submit-button")
     let message = document.getElementById("guessing-game-message");
 
-    let number = Math.floor(Math.random() * 100) + 1;
+    let number;
 
-    document.getElementById("guessing-game-submit-button").addEventListener("click", () => {
+    submitButton.addEventListener("click", () => {
         let guess = parseInt(textinput.value);
+        textinput.value = "";
 
         if (isNaN(guess)) {
-            message.innerText = "Keine Zahl angegeben!";
+            message.innerText = "Hinweis: Keine Zahl angegeben!";
             return;
         }
 
         if (guess < 1 || guess > 100) {
-            message.innerText = "Zahl muss zwischen 1 und 100 sein!";
+            message.innerText = "Hinweis: Zahl muss zwischen 1 und 100 sein!";
             return;
         }
 
         if (guess < number) {
-            message.innerText = "Größer";
+            message.innerText = `Hinweis: Die gesuchte Zahl ist größer als ${guess}`;
             return;
         } else if (guess > number) {
-            message.innerText = "Kleiner";
+            message.innerText = `Hinweis: Die gesuchte Zahl ist kleiner als ${guess}`;
             return;
         }
 
-        message.innerText = "Richtig";
-        number = Math.floor(Math.random() * 100) + 1;
+        message.innerText = `${guess} ist richtig! Drücke 'Reset' um nochmal zu spielen.`;
+        textinput.disabled = true;
+        submitButton.disabled = true;
+
     });
+
+    function resetGuessingGame() {
+        number = Math.floor(Math.random() * 100) + 1;
+        message.innerText = "Hinweis:";
+        textinput.value = "";
+        textinput.disabled = false;
+        submitButton.disabled = false;
+    }
+
+    document.getElementById("guessing-game-reset").addEventListener("click", resetGuessingGame);
+
+    resetGuessingGame();
 }
 
 function handleTicTacToe() {
+    let player1 = document.getElementById("ttt-player-1");
+    let player2 = document.getElementById("ttt-player-2");
     let message = document.getElementById("ttt-message");
 
     let nextPlayer;
     let turnNumber;
     let b;
-    let initialized;
+    let initialized = false;
 
     document.querySelectorAll("#ttt-board td").forEach((element, index) => {
         element.addEventListener("click", () => {
-            if (!initialized) {
-                nextPlayer = 0;
-                turnNumber = 0;
-                b = [
-                    -1, -1, -1,
-                    -1, -1, -1,
-                    -1, -1, -1
-                ];
-
-                if (initialized === false) {
-                    document.querySelectorAll("#ttt-board td").forEach((element) => {element.innerText = ""});
-                    initialized = true;
-                    message.innerText = "";
-
-                    return;
-                }
-                initialized = true;
-            }
-
-            if (b[index] !== -1) return;
+            if (!initialized || b[index] !== -1) return;
 
             turnNumber++;
             b[index] = nextPlayer;
@@ -80,22 +79,41 @@ function handleTicTacToe() {
 
             for (const line of lines) {
                 if (line.every((val) => val === 0)) {
-                    message.innerText = "Player 0 has won";
+                    message.innerText = `${player1.value || player1.placeholder} hat gewonnen! Drücke 'Reset' um nochmal zu spielen.`;
                     initialized = false;
                     return;
                 } else if (line.every((val) => val === 1)) {
-                    message.innerText = "Player X has won";
+                    message.innerText = `${player2.value || player2.placeholder} hat gewonnen! Drücke 'Reset' um nochmal zu spielen.`;
                     initialized = false;
                     return;
                 }
             }
 
             if (turnNumber === 9) {
-                message.innerText = "Draw";
+                message.innerText = "Unentschieden! Drücke 'Reset' um nochmal zu spielen.";
                 initialized = false;
             }
         });
     });
+
+    function resetTicTacToe() {
+        nextPlayer = 0;
+        turnNumber = 0;
+        b = [
+            -1, -1, -1,
+            -1, -1, -1,
+            -1, -1, -1
+        ];
+
+        document.querySelectorAll("#ttt-board td").forEach((element) => {element.innerText = ""});
+        message.innerText = "";
+
+        initialized = true;
+    }
+
+    document.getElementById("ttt-reset").addEventListener("click", resetTicTacToe);
+
+    resetTicTacToe();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
