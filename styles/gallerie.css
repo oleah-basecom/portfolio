@@ -1,7 +1,8 @@
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
-    overflow: scroll;
+    overflow: hidden;
+    margin-bottom: 0;
 }
 
 .gallery-element {
@@ -10,6 +11,7 @@
     flex-grow: 1;
     flex-shrink: 1;
     margin: 1rem;
+    cursor: pointer;
 }
 
 .gallery-image {
@@ -33,4 +35,20 @@
 
 .focused-element {
     height: 80vh;
+}
+
+#gallery-buttons {
+    display: none;
+}
+
+#gallery-buttons.active {
+    display: flex;
+    justify-content: space-around;
+}
+
+#gallery-buttons button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: grey;
+    cursor: pointer;
 }
