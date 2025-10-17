@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Spiele</title>
+  <link rel="icon" href="../images/basecom_favicon.svg">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../styles/games.css">
+</head>
+<header>
+  <img alt="basecom logo" src="../images/basecom-logo.svg" width="200">
+  <div>
+    <a href="../index.html">Portfolio</a>
+    <a href="gallerie.html">Gallerie</a>
+    <a href="games.html">Spiele</a>
+  </div>
+</header>
+<body>
+  <h1>Spiele</h1>
+
+  <div id="guessing-game">
+    <h2 class="game-heading">Zahlenraten</h2>
+    <label for="guessing-game-textinput">Rate eine Zahl zwischen 1 und 100</label>
+    <input id="guessing-game-textinput" type="number" min="1" max="100">
+    <input id="guessing-game-submit-button" type="submit">
+    <p><em id="guessing-game-message"></em></p>
+  </div>
+
+  <div id="tic-tac-toe">
+    <h2 class="game-heading">Tic-Tac-Toe</h2>
+    <table id="ttt-board">
+      <tr>
+        <td id="ttt-0"></td>
+        <td id="ttt-1"></td>
+        <td id="ttt-2"></td>
+      </tr>
+      <tr>
+        <td id="ttt-3"></td>
+        <td id="ttt-4"></td>
+        <td id="ttt-5"></td>
+      </tr>
+      <tr>
+        <td id="ttt-6"></td>
+        <td id="ttt-7"></td>
+        <td id="ttt-8"></td>
+      </tr>
+    </table>
+    <p id="ttt-message"><em></em></p>
+  </div>
+
+  <script src="../scripts/games.js"></script>
+</body>
+</html>
