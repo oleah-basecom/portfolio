@@ -2,7 +2,13 @@
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0.5rem 0 0;
+    padding-left: 1rem;
 }
 
 .gallery-element {
@@ -49,6 +55,41 @@
 #gallery-buttons button {
     padding-left: 1rem;
     padding-right: 1rem;
-    background-color: grey;
+    background-color: darkgrey;
     cursor: pointer;
+    border-radius: 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .gallery-container-focused {
+        flex-direction: column;
+        height: 75vh;
+        justify-content: center;
+    }
+
+    .gallery-container-focused .gallery-element {
+        display: none;
+    }
+
+    .gallery-container-focused .focused-element {
+        display: revert;
+    }
+
+    .gallery-element {
+        height: auto;
+    }
+
+    .focused-element {
+        height: 75vh;
+        max-height: fit-content;
+    }
+
+    .gallery-image {
+        max-width: 100%;
+        vertical-align: center;
+    }
+
+    #gallery-buttons {
+        margin-top: 1.5rem;
+    }
 }
